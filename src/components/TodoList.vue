@@ -1,8 +1,11 @@
 <template>
   <div clas="todo-list">
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
+      <TodoItem
+        v-for="todo in todos"
+        :key="todo._id"
+        :title="todo.title"
+        :description="todo['description']"
+       />
   </div>
 </template>
 
@@ -11,6 +14,12 @@ import TodoItem from '@/components/TodoItem'
 export default {
   components: {
     TodoItem
+  },
+  props: {
+    todos: {
+        required: true,
+        type: Array
+    }
   }
 }
 </script>
