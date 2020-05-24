@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <todo-create />
+    <todo-create @formSubmitted="createTodo" />
     <div class="todo-wrapper">
       <div class="todo-container">
         <TodoList :todos="todos" />
@@ -41,6 +41,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    createTodo(todo) {
+      this.todos.push(todo)
+    }
   }
 };
 </script>

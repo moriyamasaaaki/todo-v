@@ -13,10 +13,6 @@
         <section class="modal-card-body">
         <slot />
         </section>
-        <footer class="modal-card-foot">
-          <button @click="createTodo" type="button" class="button is-success">作成</button>
-          <button @click="isOpen = false" class="button">Cancel</button>
-        </footer>
       </div>
     </div>
   </div>
@@ -27,11 +23,6 @@ export default {
   data() {
     return {
       isOpen: false
-    }
-  },
-    methods: {
-    createTodo() {
-      console.log(this.form)
     }
   }
 };
