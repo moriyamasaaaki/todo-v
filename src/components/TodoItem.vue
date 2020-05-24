@@ -15,14 +15,14 @@
       <div class="field">
         <label class="label">タイトル</label>
         <div class="control">
-          <input :value="title" class="input" type="text" placeholder="Text input" />
+          <input v-model="todo.title" class="input" type="text" placeholder="Text input" />
         </div>
       </div>
       <div>
         <label class="label">内容</label>
         <div class="control">
           <textarea
-            :value="description"
+            v-model="todo.description"
             class="textarea"
             placeholder="10 lines of textarea"
             rows="10"
@@ -38,8 +38,13 @@
 </template>
 
 <script>
+import store from '@/store'
 export default {
   props: {
+     _id: {
+      type: String,
+      required: true
+    },
     title: {
       type: String,
       required: true
@@ -51,12 +56,18 @@ export default {
   },
   data() {
     return {
-      editMode: false
+      editMode: false,
+      todo: {
+        _id: this._id,
+        title: this.title,
+        description: this.description
+      }
     };
   },
   methods: {
     editTodo() {
-      alert("editing todo!");
+        store.dispatch('updateTodo', {...this.todo})
+        this.editMode = false
     },
     deleteTodo() {
       alert("deleting todo!");
