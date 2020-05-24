@@ -8,10 +8,10 @@
       <div class="modal-card">
         <header class="modal-card-head">
           <p class="modal-card-title">Modal title</p>
-          <button @click="isOpen = false" class="delete" aria-label="close"></button>
+          <button @click="close" class="delete" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
-        <slot />
+          <slot />
         </section>
       </div>
     </div>
@@ -23,6 +23,18 @@ export default {
   data() {
     return {
       isOpen: false
+    };
+  },
+  watch: {
+    close(isClose) {
+      if (isClose && this.isOpen) {
+        this.isOpen = false;
+      }
+    }
+  },
+  methods: {
+    close() {
+      this.isOpen = false;
     }
   }
 };
