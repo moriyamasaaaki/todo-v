@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Modal />
+    <todo-create />
     <div class="todo-wrapper">
       <div class="todo-container">
         <TodoList :todos="todos" />
@@ -12,11 +12,11 @@
 <script>
 import "bulma/css/bulma.css";
 import TodoList from "@/components/TodoList";
-import Modal from "@/components/Modal";
+import TodoCreate from "@/components/TodoCreate";
 export default {
   components: {
     TodoList,
-    Modal
+    TodoCreate
   },
   data() {
     return {
