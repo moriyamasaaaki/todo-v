@@ -31,17 +31,24 @@ const store = {
     },
     updateTodo(state, todoToUpdate) {
       const index = state.todos.findIndex((todo) => {
-        return todo._id === todoToUpdate._id
-      })
+        return todo._id === todoToUpdate._id;
+      });
 
-      Vue.set(state.todos, index, todoToUpdate)
-    }
-  }
+      Vue.set(state.todos, index, todoToUpdate);
+    },
+    deleteTodo(state, todoId) {
+      const index = state.todos.findIndex((todo) => {
+        return todo._id === todoId;
+      });
+
+      state.todos.splice(index, 1);
+    },
+  },
 };
 
 store.dispatch = function(action, payload) {
   if (!this.actions[action]) {
-    throw new Error(`Action ${action} is not defined in the store`);
+    throw new Error(`${action}定義されていません。`);
   }
 
   return this.actions[action](this.state, payload);

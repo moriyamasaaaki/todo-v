@@ -8,7 +8,7 @@
       <div class="message-body">{{ description }}</div>
       <div class="buttons">
         <button @click="editMode = true" class="button is-warning">編集</button>
-        <button @click="deleteTodo = true" class="button is-warning">削除</button>
+        <button @click="deleteTodo" class="button is-warning">削除</button>
       </div>
     </article>
     <form v-else action>
@@ -70,8 +70,7 @@ export default {
         this.editMode = false
     },
     deleteTodo() {
-      alert("deleting todo!");
-    }
+        store.dispatch('deleteTodo', this.todo._id)    }
   }
 };
 </script>
