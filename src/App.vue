@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1 class="title">Week Todo</h1>
     <todo-create @formSubmitted="createTodo" />
     <div class="todo-wrapper">
       <div class="todo-container">
@@ -39,5 +40,9 @@ export default {
   max-width: 700px;
   margin: 0 auto;
   padding: 0 8px;
+}
+.title {
+  text-align: center;
+  margin: 56px 0 0;
 }
 </style>
