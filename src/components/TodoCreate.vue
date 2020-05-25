@@ -4,7 +4,7 @@
       <div class="field">
         <label class="label">タイトル</label>
         <div class="control">
-          <input v-model="form.title" class="input" type="text" placeholder="Text input" />
+          <input v-model="form.title" class="input" type="text" placeholder="vueについて" />
         </div>
         <p class="help is-danger">{{ formError }}</p>
       </div>
@@ -14,7 +14,7 @@
           <textarea
             v-model="form.description"
             class="textarea"
-            placeholder="10 lines of textarea"
+            placeholder="vueについて調べました"
             rows="10"
           ></textarea>
         </div>
@@ -69,3 +69,10 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.button {
+    margin: 8px;
+}
+
+</style>

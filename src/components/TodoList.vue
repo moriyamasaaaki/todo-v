@@ -9,7 +9,7 @@
         :description="todo['description']"
       />
     </div>
-    <div v-else class="no-todos">Todoはありません。</div>
+    <div v-else class="no-todos">Todoがありません。作成してください。</div>
   </div>
 </template>
 
